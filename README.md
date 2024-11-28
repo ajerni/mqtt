@@ -1,17 +1,3 @@
-# Your Project Name
+# MQTT Dashboard for the HiveMQ Cloud
 
-Brief description of your project.
-
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Create a `.env` file with required environment variables
-4. Run the development server: `npm run dev`
-
-## Technologies Used
-
-- Next.js
-- TypeScript
-- Tailwind CSS
-- [Other technologies...]
+This is a simple dashboard for the HiveMQ Cloud. It allows you to publish and subscribe to MQTT topics and to control the traffic lights.
