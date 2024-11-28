@@ -15,16 +15,9 @@ export default function TrafficLightsPage() {
   const [error, setError] = useState<string | null>(null)
   const [isConnected, setIsConnected] = useState(false)
 
-  // If not authenticated, show login form
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-[80vh] flex items-center justify-center">
-        <LoginForm />
-      </div>
-    )
-  }
-
   useEffect(() => {
+    if (!isAuthenticated) return // Early return if not authenticated
+
     const mqttService = MQTTService.getInstance()
     
     const connect = async () => {
@@ -67,7 +60,16 @@ export default function TrafficLightsPage() {
       console.log('Cleaning up MQTT connection')
       mqttService.disconnect()
     }
-  }, [])
+  }, [isAuthenticated]) // Add isAuthenticated to dependencies
+
+  // If not authenticated, show login form
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-[80vh] flex items-center justify-center">
+        <LoginForm />
+      </div>
+    )
+  }
 
   if (error) {
     return (
