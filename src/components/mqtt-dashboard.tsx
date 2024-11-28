@@ -24,7 +24,7 @@ export function MQTTDashboard() {
     
     const connect = async () => {
       try {
-        const client = await mqttService.connect()
+        await mqttService.connect()
         setIsConnected(true)
         setError(null)
 
