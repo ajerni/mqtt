@@ -4,13 +4,25 @@ import { useEffect, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { TrafficLight } from "@/components/traffic-light"
 import { MQTTService } from "@/lib/mqtt"
+import { LoginForm } from "@/components/login-form"
+import { useAuth } from "@/contexts/auth-context"
 
 type LightState = "idle" | "red" | "yellow" | "green"
 
 export default function TrafficLightsPage() {
+  const { isAuthenticated } = useAuth()
   const [lightState, setLightState] = useState<LightState>("idle")
   const [error, setError] = useState<string | null>(null)
   const [isConnected, setIsConnected] = useState(false)
+
+  // If not authenticated, show login form
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-[80vh] flex items-center justify-center">
+        <LoginForm />
+      </div>
+    )
+  }
 
   useEffect(() => {
     const mqttService = MQTTService.getInstance()
