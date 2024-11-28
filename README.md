@@ -4,10 +4,12 @@ This is a simple dashboard for the HiveMQ Cloud. It allows you to publish and su
 
 ## Create a .env file:
 
+```bash
 NEXT_PUBLIC_HIVE_USERNAME=your_username_hivemq
 NEXT_PUBLIC_HIVE_PASSWORD=your_password_hivemq
 NEXT_PUBLIC_HIVE_URL=your_hive_url.eu.hivemq.cloud
 LOGIN_PASSWORD=your_local_login_password
+```
 
 ### Run the development server:
 
