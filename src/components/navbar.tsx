@@ -30,6 +30,15 @@ export function Navbar() {
             >
               Traffic Lights
             </Link>
+            <Link
+              href="/alerts"
+              className={cn(
+                "transition-colors hover:text-foreground/80",
+                pathname === "/alerts" ? "text-foreground" : "text-foreground/60"
+              )}
+            >
+              Alerts
+            </Link>
           </div>
         </div>
       </div>
